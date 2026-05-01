@@ -17,11 +17,22 @@ export default function Navbar(){
     const h=()=>setScrolled(window.scrollY>20);
     window.addEventListener('scroll',h);return()=>window.removeEventListener('scroll',h);
   },[]);
+
+  const menuVariants = {
+    closed: { opacity: 0, height: 0, transition: { duration: 0.3, ease: 'easeInOut', when: 'afterChildren' } },
+    open: { opacity: 1, height: 'auto', transition: { duration: 0.4, ease: 'easeOut', when: 'beforeChildren', staggerChildren: 0.1 } }
+  };
+
+  const itemVariants = {
+    closed: { opacity: 0, x: -10 },
+    open: { opacity: 1, x: 0 }
+  };
+
   return(
     <nav style={{position:'fixed',width:'100%',zIndex:100,transition:'all 0.4s'}} className={scrolled?'nav-glass':''}>
       <div className="container flex items-center justify-between" style={{padding:'1rem 0'}}>
         <Link to="hero" smooth className="text-gradient flex items-center gap-2 cursor-pointer"
-          style={{fontSize:'1.4rem',fontWeight:800,letterSpacing:'-0.04em',fontFamily:"'Outfit',sans-serif"}}>
+          style={{fontSize:'1.4rem',fontWeight:800,letterSpacing:'-0.04em',fontFamily:"'Outfit',sans-serif",whiteSpace:'nowrap'}}>
           <Zap size={20} style={{color:'var(--primary)'}}/> Gopika Raj R
         </Link>
         <div style={{gap:'2rem'}} className="desktop-flex items-center">
@@ -30,20 +41,28 @@ export default function Navbar(){
           ))}
         </div>
         <button className="mobile-only" onClick={()=>setOpen(!open)}
-          style={{color:'#fff',background:'none',border:'none',cursor:'pointer'}}>
-          {open?<X size={26}/>:<Menu size={26}/>}
+          style={{color:'#fff',background:'rgba(255,255,255,0.05)',border:'1px solid var(--border)',borderRadius:'0.75rem',padding:'0.5rem',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',transition:'var(--transition)'}}>
+          {open?<X size={24} style={{color:'var(--accent)'}}/>:<Menu size={24}/>}
         </button>
       </div>
       <AnimatePresence>
         {open&&(
-          <motion.div initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1}} exit={{height:0,opacity:0}}
-            style={{background:'rgba(3,7,18,0.98)',borderBottom:'1px solid var(--border)',overflow:'hidden',padding:'1.5rem 2rem',display:'flex',flexDirection:'column',gap:'1.25rem'}}>
+          <motion.div initial="closed" animate="open" exit="closed" variants={menuVariants}
+            style={{background:'rgba(3,7,18,0.98)',backdropFilter:'blur(20px)',borderBottom:'1px solid var(--border)',overflow:'hidden',padding:'1.5rem 2rem',display:'flex',flexDirection:'column',gap:'1rem'}}>
             {links.map(l=>(
-              <Link key={l.name} to={l.to} smooth offset={-80} onClick={()=>setOpen(false)}
-                style={{color:'var(--muted)',fontWeight:700,fontSize:'1.1rem'}}>
-                {l.name}
-              </Link>
+              <motion.div key={l.name} variants={itemVariants}>
+                <Link to={l.to} smooth offset={-80} onClick={()=>setOpen(false)}
+                  className="nav-link"
+                  style={{display:'block',padding:'0.75rem 0',fontSize:'1.1rem',fontWeight:700,borderBottom:'1px solid rgba(255,255,255,0.03)'}}>
+                  {l.name}
+                </Link>
+              </motion.div>
             ))}
+            <motion.div variants={itemVariants} style={{marginTop:'1rem'}}>
+              <Link to="contact" smooth offset={-80} onClick={()=>setOpen(false)} className="btn-primary" style={{width:'100%',justifyContent:'center'}}>
+                Let's Talk
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

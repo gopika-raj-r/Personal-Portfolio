@@ -458,6 +458,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .btn-primary, .btn-outline{width:100%;justify-content:center;}
 }
 
+.desktop-flex{display:none !important;}
+.mobile-only{display:flex !important;}
+
 @media(min-width:769px){
   .mobile-only{display:none !important;}
   .desktop-flex{display:flex !important;}
