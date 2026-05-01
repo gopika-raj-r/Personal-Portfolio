@@ -77,7 +77,7 @@ export default function Projects(){
         </div>
 
         {/* Main Slider Card */}
-        <div style={{position:'relative',borderRadius:'2rem',overflow:'hidden',border:'1px solid var(--border)',background:'rgba(10,12,28,0.95)',minHeight:'420px'}}>
+        <div style={{position:'relative',borderRadius:'2rem',overflow:'hidden',border:'1px solid var(--border)',background:'rgba(10,12,28,0.95)'}}>
 
           {/* Accent glow top */}
           <motion.div animate={{opacity:[0.4,0.7,0.4]}} transition={{duration:3,repeat:Infinity}}
@@ -86,7 +86,7 @@ export default function Projects(){
           <AnimatePresence custom={dir} mode="wait">
             <motion.div key={active} custom={dir} variants={slideVariants} initial="enter" animate="center" exit="exit"
               className="proj-grid"
-              style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:0,minHeight:'420px'}}>
+              style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:0}}>
 
               {/* LEFT — Details */}
               <div className="proj-details" style={{padding:'3rem',display:'flex',flexDirection:'column',justifyContent:'center',gap:'1.5rem',borderRight:'1px solid var(--border)'}}>
@@ -158,12 +158,12 @@ export default function Projects(){
                     </div>
                   </div>
                   <img src={p.img} alt={p.title}
-                    style={{width:'100%',height:'240px',objectFit:'cover',objectPosition:'top',display:'block'}}
+                    style={{width:'100%',aspectRatio:'16/9',objectFit:'cover',objectPosition:'top',display:'block'}}
                     onError={e=>{
                       e.target.style.display='none';
                       e.target.nextSibling.style.display='flex';
                     }}/>
-                  <div style={{display:'none',height:'240px',alignItems:'center',justifyContent:'center',background:`linear-gradient(135deg,${p.accent}20,rgba(0,0,0,0.3))`}}>
+                  <div style={{display:'none',aspectRatio:'16/9',alignItems:'center',justifyContent:'center',background:`linear-gradient(135deg,${p.accent}20,rgba(0,0,0,0.3))`}}>
                     <span style={{color:'#475569',fontWeight:700,fontSize:'0.9rem'}}>{p.title}</span>
                   </div>
                 </div>

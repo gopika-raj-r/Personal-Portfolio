@@ -60,9 +60,9 @@ export default function Contact() {
           <h2 className="section-title">Start a Conversation</h2>
           <div className="divider" />
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
+        <div className="grid-2" style={{ gap: '4rem', alignItems: 'start' }}>
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <h3 style={{ fontSize: '2rem', color: '#fff', fontWeight: 800, marginBottom: '1rem', lineHeight: 1.2 }}>
+            <h3 style={{ fontSize: '2rem', color: '#fff', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
               Let's build something <span className="text-gradient">memorable.</span>
             </h3>
             <p style={{ color: 'var(--muted)', fontSize: '1rem', lineHeight: 1.7, marginBottom: '3rem', maxWidth: '380px' }}>
@@ -93,7 +93,7 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className="glass-card" style={{ padding: '2.5rem' }}>
             <form onSubmit={handle} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="grid-2" style={{ gap: '1rem' }}>
                 <div>
                   <label style={{ display: 'block', color: 'var(--muted)', fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Full Name</label>
                   <input type="text" name="name" className="input-field" placeholder="Jane Smith" required />

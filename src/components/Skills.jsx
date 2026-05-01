@@ -29,7 +29,7 @@ export default function Skills(){
               <div style={{width:'2rem',height:'0.25rem',background:'linear-gradient(to right,var(--primary),var(--secondary))',borderRadius:'9999px'}}/>
               <span style={{color:'#fff',fontWeight:700,fontSize:'1rem',letterSpacing:'0.05em'}}>{g.label}</span>
             </div>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1rem'}}>
+            <div className="grid-4">
               {g.skills.map(({n,I},i)=>(
                 <motion.div key={i} initial={{opacity:0,y:15}} whileInView={{opacity:1,y:0}} viewport={{once:true}}
                   transition={{delay:i*0.07}} whileHover={{y:-8,borderColor:'var(--primary)'}}

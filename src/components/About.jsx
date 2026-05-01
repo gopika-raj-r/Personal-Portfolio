@@ -18,7 +18,7 @@ export default function About(){
           <h2 className="section-title">Crafting Digital Solutions</h2>
           <div className="divider"/>
         </div>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'4rem',alignItems:'center'}}>
+        <div className="grid-2 items-center" style={{gap:'4rem'}}>
           <motion.div initial={{opacity:0,x:-30}} whileInView={{opacity:1,x:0}} viewport={{once:true}}
             className="glass-card" style={{padding:'2.5rem',borderLeft:'4px solid var(--primary)'}}>
             <p style={{fontSize:'clamp(0.95rem,1.5vw,1.1rem)',lineHeight:1.8,color:'var(--muted)',marginBottom:'1.5rem'}}>
@@ -30,7 +30,7 @@ export default function About(){
               I approach technical challenges with a blend of logic and design-thinking, building tools that are as functional as they are beautiful.
             </p>
           </motion.div>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'1.25rem'}}>
+          <div className="grid-2" style={{gap:'1.25rem'}}>
             {stats.map((s,i)=>(
               <motion.div key={i} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}}
                 transition={{delay:i*0.1}} className="stat-card">

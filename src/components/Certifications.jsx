@@ -25,7 +25,7 @@ export default function Certifications(){
           <h2 className="section-title">Accolades</h2>
           <div className="divider"/>
         </div>
-        <div className="cert-grid" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'4rem'}}>
+        <div className="grid-2" style={{gap:'4rem'}}>
           <div>
             <div style={{display:'flex',alignItems:'center',gap:'0.75rem',marginBottom:'2rem'}}>
               <Award style={{color:'var(--primary)'}} size={26}/>
@@ -70,11 +70,6 @@ export default function Certifications(){
           </div>
         </div>
       </div>
-      <style>{`
-        @media(max-width:968px){
-          .cert-grid{grid-template-columns:1fr!important;gap:3rem!important;}
-        }
-      `}</style>
     </section>
   );
 }

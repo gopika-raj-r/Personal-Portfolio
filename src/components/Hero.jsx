@@ -114,45 +114,51 @@ export default function Hero() {
       <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         style={{ position: 'absolute', top: '20%', left: '40%', width: '500px', height: '500px', background: 'radial-gradient(circle,rgba(99,102,241,0.15),transparent 70%)', borderRadius: '50%', pointerEvents: 'none', zIndex: 0 }} />
 
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', position: 'relative', zIndex: 1 }}>
-        <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.4rem 1rem', borderRadius: '9999px', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.25)', color: 'var(--primary)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
-            <Sparkles size={13} /> Available for Opportunities
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="grid-2 items-center" style={{ gap: '4rem' }}>
+          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.4rem 1rem', borderRadius: '9999px', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.25)', color: 'var(--primary)', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
+              <Sparkles size={13} /> Available for Opportunities
+            </motion.div>
+            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+              style={{ fontSize: 'clamp(2.5rem,8vw,5rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.03em' }}>
+              Gopika Raj R
+            </motion.h1>
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+              style={{ fontSize: 'clamp(0.95rem,1.5vw,1.1rem)', color: 'var(--muted)', marginBottom: '2.5rem', maxWidth: '480px', lineHeight: 1.7 }}>
+              I'm <strong style={{ color: '#fff' }}>Gopika Raj R</strong>, a MERN Stack Developer crafting high-performance,
+              visually stunning web applications with logic and design-thinking.
+            </motion.p>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
+              style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+              <Link to="projects" smooth offset={-80} className="btn-primary cursor-pointer" style={{ padding: '0.9rem 2rem' }}><Rocket size={18} />View Projects</Link>
+              <Link to="contact" smooth offset={-80} className="btn-outline cursor-pointer" style={{ padding: '0.9rem 2rem' }}><Mail size={18} />Contact Me</Link>
+            </motion.div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
+              style={{ marginTop: '3rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              <div style={{ display: 'flex' }}>
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} style={{ width: '2.2rem', height: '2.2rem', borderRadius: '50%', border: '2px solid var(--bg)', background: `linear-gradient(${i * 45}deg,var(--primary),var(--secondary))`, marginLeft: i > 1 ? '-0.6rem' : 0, opacity: 0.7 }} />
+                ))}
+              </div>
+              <p style={{ fontSize: '0.85rem', color: 'var(--muted)' }}><span style={{ color: '#fff', fontWeight: 700 }}>5+ Projects</span> deployed</p>
+            </motion.div>
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-            style={{ fontSize: 'clamp(2.5rem,5.5vw,5rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.5rem', letterSpacing: '-0.03em' }}>
-            Gopika Raj R
-          </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
-            style={{ fontSize: 'clamp(0.95rem,1.5vw,1.1rem)', color: 'var(--muted)', marginBottom: '2.5rem', maxWidth: '480px', lineHeight: 1.7 }}>
-            I'm <strong style={{ color: '#fff' }}>Gopika Raj R</strong>, a MERN Stack Developer crafting high-performance,
-            visually stunning web applications with logic and design-thinking.
-          </motion.p>
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-            style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-            <Link to="projects" smooth offset={-80} className="btn-primary cursor-pointer" style={{ padding: '0.9rem 2rem' }}><Rocket size={18} />View Projects</Link>
-            <Link to="contact" smooth offset={-80} className="btn-outline cursor-pointer" style={{ padding: '0.9rem 2rem' }}><Mail size={18} />Contact Me</Link>
-          </motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
-            style={{ marginTop: '3rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-            <div style={{ display: 'flex' }}>
-              {[1, 2, 3, 4].map(i => (
-                <div key={i} style={{ width: '2.2rem', height: '2.2rem', borderRadius: '50%', border: '2px solid var(--bg)', background: `linear-gradient(${i * 45}deg,var(--primary),var(--secondary))`, marginLeft: i > 1 ? '-0.6rem' : 0, opacity: 0.7 }} />
-              ))}
-            </div>
-            <p style={{ fontSize: '0.85rem', color: 'var(--muted)' }}><span style={{ color: '#fff', fontWeight: 700 }}>5+ Projects</span> deployed</p>
-          </motion.div>
-        </motion.div>
 
-        <div className="hero-card-wrap"><TiltCard /></div>
+          <div className="hero-card-wrap">
+            <TiltCard />
+          </div>
+        </div>
       </div>
 
       <style>{`
         @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+        @media(max-width:1024px){
+          .hero-card-wrap{transform:scale(0.85);margin-left:-2rem;}
+        }
         @media(max-width:768px){
-          .hero-card-wrap{display:none!important;}
-          #hero>.container{grid-template-columns:1fr!important;}
+          .hero-card-wrap{transform:scale(1);margin-left:0;margin-top:2rem;}
         }
       `}</style>
     </section>

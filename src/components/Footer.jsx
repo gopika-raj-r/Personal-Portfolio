@@ -25,19 +25,19 @@ export default function Footer(){
   return(
     <footer style={{borderTop:'1px solid var(--border)',padding:'4rem 0',position:'relative',overflow:'hidden'}}>
       <div style={{position:'absolute',bottom:0,left:'50%',transform:'translateX(-50%)',width:'600px',height:'200px',background:'var(--primary)',filter:'blur(120px)',opacity:0.08,borderRadius:'50%',pointerEvents:'none'}}/>
-      <div className="container" style={{display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center',gap:'2rem',position:'relative'}}>
-        <div>
-          <div style={{display:'flex',alignItems:'center',gap:'0.5rem',marginBottom:'0.75rem'}}>
-            <Zap size={22} style={{color:'var(--primary)'}}/>
-            <h2 style={{fontSize:'1.75rem',fontWeight:800,letterSpacing:'-0.04em',fontFamily:"'Outfit',sans-serif",background:'linear-gradient(135deg,#818cf8,#c084fc,#f472b6)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>
+      <div className="container flex justify-between items-center md-col" style={{ gap: '2rem', position: 'relative', textAlign: 'center' }}>
+        <div className="flex flex-col items-center" style={{ textAlign: 'center' }}>
+          <div className="flex items-center gap-2" style={{ marginBottom: '0.75rem' }}>
+            <Zap size={22} style={{ color: 'var(--primary)' }} />
+            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, letterSpacing: '-0.04em', fontFamily: "'Outfit',sans-serif", background: 'linear-gradient(135deg,#818cf8,#c084fc,#f472b6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               Gopika Raj R
             </h2>
           </div>
-          <p style={{color:'var(--muted)',fontSize:'0.875rem',maxWidth:'300px',lineHeight:1.6}}>
+          <p style={{ color: 'var(--muted)', fontSize: '0.875rem', maxWidth: '300px', lineHeight: 1.6 }}>
             Crafting scalable digital solutions with logic, passion, and modern engineering.
           </p>
         </div>
-        <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:'1.25rem'}}>
+        <div className="flex flex-col items-center" style={{ gap: '1.25rem' }}>
           <div style={{display:'flex',gap:'1rem'}}>
             {socials.map(({I,href},i)=>(
               <a key={i} href={href} target={href.startsWith('http')?'_blank':undefined} rel="noreferrer"

@@ -11,7 +11,7 @@ export default function Experience(){
           <h2 className="section-title">The Journey</h2>
           <div className="divider"/>
         </div>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'5rem'}}>
+        <div className="grid-2" style={{gap:'5rem'}}>
           {/* Professional */}
           <div>
             <div className="flex items-center gap-3 mb-12">

@@ -20,7 +20,7 @@ export default function Services(){
           <h2 className="section-title">Technical Specialties</h2>
           <div className="divider"/>
         </div>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'1.5rem'}}>
+        <div className="grid-3" style={{gap:'1.5rem'}}>
           {services.map((s,i)=>(
             <motion.div key={i} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}}
               transition={{delay:i*0.08}} className="glass-card" style={{padding:'2rem'}}>

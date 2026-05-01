@@ -47,9 +47,20 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 /* Grid */
 .grid-1{display:grid;grid-template-columns:1fr;gap:2rem;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+
+@media(max-width:1024px){
+  .grid-4{grid-template-columns:repeat(3,1fr);}
+  .grid-3{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:768px){
+  .grid-4, .grid-3, .grid-2{grid-template-columns:1fr;}
+  .section{padding:80px 0;}
+  .section-sm{padding:40px 0;}
+}
 
 /* Flex */
 .flex{display:flex;}
@@ -408,23 +419,46 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 }
 
 /* Responsive */
+@media(max-width:1280px){
+  .container{max-width:100%;padding:0 3rem;}
+}
+
 @media(max-width:1024px){
-  .grid-3{grid-template-columns:1fr 1fr;}
-  .grid-4{grid-template-columns:1fr 1fr;}
-  .lg-hidden{display:none;}
+  .container{padding:0 2rem;}
+  .lg-hidden{display:none !important;}
 }
+
 @media(max-width:768px){
-  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
-  .section{padding:60px 0;}
-  .container{padding:0 1.25rem;}
-  .text-7xl{font-size:3rem;}
-  .text-6xl{font-size:2.5rem;}
-  .text-5xl{font-size:2rem;}
-  .md-hidden{display:none;}
-  .md-flex{display:flex;}
-  .md-block{display:block;}
+  .container{padding:0 1.5rem;}
+  .text-7xl{font-size:3.5rem;}
+  .text-6xl{font-size:3rem;}
+  .text-5xl{font-size:2.5rem;}
+  .text-4xl{font-size:2rem;}
+  .section-title{font-size:2.2rem;}
+  
+  .md-hidden{display:none !important;}
+  .md-flex{display:flex !important;}
+  .md-block{display:block !important;}
+  .md-col{flex-direction:column !important;}
+  
+  .p-12{padding:2rem;}
+  .p-10{padding:1.5rem;}
+  .p-8{padding:1.25rem;}
+  .py-16{padding-top:3rem;padding-bottom:3rem;}
 }
+
+@media(max-width:480px){
+  .container{padding:0 1rem;}
+  .text-7xl{font-size:2.5rem;}
+  .text-6xl{font-size:2.2rem;}
+  .text-5xl{font-size:2rem;}
+  .section-title{font-size:1.8rem;}
+  
+  .sm-hidden{display:none !important;}
+  .btn-primary, .btn-outline{width:100%;justify-content:center;}
+}
+
 @media(min-width:769px){
-  .mobile-only{display:none;}
-  .desktop-flex{display:flex;}
+  .mobile-only{display:none !important;}
+  .desktop-flex{display:flex !important;}
 }
